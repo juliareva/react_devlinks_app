@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "../components/Link";
 
 const CustomizeLinks = () => {
   const [links, setLinks] = useState([]);
+
+  useEffect(() => { 
+    const data = localStorage.getItem('dataKey');
+    data == null ? setLinks([]) : setLinks(JSON.parse(data))}, []);
 
   return (
     <>
@@ -23,7 +27,7 @@ const CustomizeLinks = () => {
         })}
       </div>
 
-      <input type="button" value="Save" />
+      <input type="button" value="Save" onClick={() => { localStorage.setItem('dataKey', JSON.stringify(links)); }}/>
     </>
   );
 };

@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { ReactComponent as Drag_and_Drop } from "../assets/images/icon-drag-and-drop.svg";
 
-const Link = ({idx, links, setLinks}) => {
-    const [url_text, setUrlText] = useState(""); 
+const Link = ({idx, links, setLinks, link}) => {
+    const [url_text, setUrlText] = useState(link.url_text ? link.url_text : ""); 
     const [touched, setTouched] = useState(false); 
-    const [platform, setPlatform] = useState(""); 
+    const [platform, setPlatform] = useState(link.platform ? link.platform : ""); 
     const [placeholder, setPlaceholder] = useState("Please add your link here"); 
 
     
 
 const handleEmpty = (event) => {setUrlText(event.target.value);}
 
-useEffect(() => {handlePlaceholder()}, [platform])
+useEffect(() => {
+    handlePlaceholder();
+    handlePlatform();
+}, [platform]);
+
+useEffect(() => {    
+    handleUrlText();
+}, [url_text]);
 
 const handlePlaceholder = () => {
     switch(platform) {
@@ -33,6 +40,18 @@ const handlePlaceholder = () => {
           default:
             setPlaceholder(placeholder);
       }
+}
+
+const handlePlatform = () => {
+    let newLinks = [...links];
+    newLinks[idx - 1].platform = platform;
+    setLinks(newLinks);
+}
+
+const handleUrlText = () => {
+    let newLinks = [...links];
+    newLinks[idx - 1].url_text = url_text;
+    setLinks(newLinks);
 }
 
 

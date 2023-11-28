@@ -79,7 +79,7 @@ const handleUrlText = () => {
           </select>
 
           <label for="link">Link</label>
-          <input type="url" placeholder={placeholder} required onChange={handleEmpty} onFocus={() => {setTouched(true)}}/>
+          <input type="url" placeholder={placeholder} required onChange={handleEmpty} value={url_text} onFocus={() => {setTouched(true)}}/>
         {url_text.length < 1 && touched ? <p>Can't be empty</p> : ""}
         {url_text.length > 0 && !url_text.includes(platform) ? <p>Please check the URL</p> : ""}
         </div>

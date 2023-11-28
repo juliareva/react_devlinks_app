@@ -1,9 +1,9 @@
-import CustomizeLinks from './pages/CustomizeLinks';
+import Links from "./pages/Links";
 
 function App() {
   return (
     <div className="App">
-     <CustomizeLinks />
+      <Links />
     </div>
   );
 }

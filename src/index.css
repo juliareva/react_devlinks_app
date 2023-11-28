@@ -34,3 +34,39 @@ code {
   gap: 1em;
 
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: blanchedalmond;
+}
+
+.main_container {
+  width: 100%;
+  display: flex;
+}
+
+.customise_container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.mockup {
+  width: 50%;
+  padding: 2em;
+
+}
+
+.mockup {
+  display: flex;
+  justify-content: center;
+}
+
+.mockup_container {
+  background-color: lightgrey;
+  padding: 2em;
+}

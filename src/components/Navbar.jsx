@@ -6,23 +6,24 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar">
-      <div className="logo">
-      <Link to="/">
-        <Logo /> <h1>devlinks</h1></Link>
-      </div>
-      <div className="nav_links">
-        <ul>
-            <li><Link to="/"><LinkIcon /> Links</Link></li>
-            <li><Link to="/profile"><ProfileDetails /> Profile Details</Link></li>
-        </ul>
-       
-      </div>
-      <div className="profile_details">
+    <nav>
+      <Link to="/" className="logo_container">
+        <Logo id="logo" />
+        <h1 className="heading_m">devlinks</h1>
+      </Link>
 
+      <div className="nav_links_container">
+        <Link to="/" className="nav_link">
+          <LinkIcon /> <p className="heading_s">Links</p>
+        </Link>
+
+        <Link to="/profile" className="nav_link">
+          <ProfileDetails /> <p className="heading_s">Profile Details</p>
+        </Link>
       </div>
-      <button>Preview</button>
-    </div>
+
+      <button className="btn_secondary">Preview</button>
+    </nav>
   );
 };
 

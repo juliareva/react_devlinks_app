@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Mockup = ({links, setLinks}) => {
+const Mockup = ({links, profile}) => {
   return (
     <div className='mockup'>
         <div className="mockup_container">
         <div className="personal_info">
-        <img src="" alt="profile_pic"/>
-        <h2>Name Name</h2>
-        <h3>email@email.com</h3>
+        <img src={`data:image/png;base64,${profile.avatar}`} alt="profile photo" />
+        <h2>{(profile.first_name ? profile.first_name : "") + " " + (profile.last_name ? profile.last_name : "")}</h2>
+        <h3>{profile.email ? profile.email : ""}</h3>
         </div>
 
         <div className="mockup_links">

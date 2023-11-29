@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
 
-/* GLOBAL COLORS */
+/* ------- GLOBAL COLORS */
     --color-purple: #633CFF;
     --color-purple-light: #BEADFF;
     --color-purple-pale: #EFEBFF;
@@ -23,7 +23,7 @@
 
 }
 
-/* GLOBAL FONTS */
+/* ------- GLOBAL FONTS */
 @font-face {
   font-family: "InstrumentSans-Bold";   
   src: local("InstrumentSans-Bold"),
@@ -61,7 +61,7 @@
 }
 
 
-/* GLOBAL STYLES */
+/* ------- GLOBAL STYLES */
 body {
   margin: 0;
   background-color: var(--color-grey-pale);
@@ -96,7 +96,7 @@ body {
 }
 
 
-/* NAVBAR STYLES */
+/* ------- NAVBAR STYLES */
 nav {
   width: 100%;
   display: flex;
@@ -121,23 +121,28 @@ nav {
 .nav_links_container {
   display: flex;
   align-items: center;
-  gap: 2em;
-
-
 }
 
 .nav_link {
   display: flex;
-  gap: 0.25em;
+  padding: 11px 27px;
   align-items: center;
   text-decoration: none;
-  color: var(--color-grey)
+  color: var(--color-grey);
+  gap: 0.25em;
+}
 
+.nav_link.active {
+  padding: 11px 27px;
+  border-radius: 8px;
+  background: var(--color-purple-pale, #EFEBFF);
 
 }
 
-
-
+.nav_link:hover {
+  color: var(--color-purple);
+  cursor: pointer;
+}
 
 
 

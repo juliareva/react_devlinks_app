@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "./Link";
 
-const CustomizeLinks = ({links, setLinks}) => {
+const CustomizeLinks = ({ links, setLinks }) => {
   // const [links, setLinks] = useState([]);
 
   // useEffect(() => {
@@ -11,19 +11,27 @@ const CustomizeLinks = ({links, setLinks}) => {
 
   return (
     <div className="customise_container">
-      <h1>Customize your links</h1>
-      <p>
-        Add/edit/remove links below and then share all your profiles with the
-        world!
-      </p>
-      <input
-        type="button"
-        value="+ Add new link"
-        onClick={() => setLinks([...links, {
-          //platform:"github", url_text:""
-        }
-      ])}
-      />
+
+      <div className="customize_wrapper">
+        <h2 className="heading_m">Customize your links</h2>
+        <p className="body_m">
+          Add/edit/remove links below and then share all your profiles with the
+          world!
+        </p>
+        <input
+          type="button"
+          value="+ Add new link"
+          className="btn_secondary"
+          onClick={() =>
+            setLinks([
+              ...links,
+              {
+                //platform:"github", url_text:""
+              },
+            ])
+          }
+        />
+      </div>
 
       <div className="links">
         {links.map((link, index) => {
@@ -44,6 +52,7 @@ const CustomizeLinks = ({links, setLinks}) => {
         onClick={() => {
           localStorage.setItem("dataKey", JSON.stringify(links));
         }}
+        className="btn_primary btn_save_links"
       />
     </div>
   );

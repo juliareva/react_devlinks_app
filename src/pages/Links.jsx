@@ -12,7 +12,7 @@ const Links = ({ links, setLinks, profile }) => {
   // }, []);
 
   return (
-    <div>
+    <div className="page_container">
       <Navbar />
       <div className="main_container">
         <Mockup links={links} setLinks={setLinks} profile={profile} />

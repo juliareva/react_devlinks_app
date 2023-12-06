@@ -375,33 +375,28 @@ text-transform: capitalize;
 .mockup_links a {
   text-decoration: none;
 }
-/* 
 
 
-.profile_container {
+/* ------ GET STARTED STYLES */
+.get_started {
+  margin-top: 1em;
+  background-color: var(--color-grey-pale);
   display: flex;
   flex-direction: column;
-}
-
-.profile_page {
-  display: flex;
-}
-
-.profile_picture {
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 3em;
   gap: 2em;
-  padding: 1em;
-  background-color: beige;
+
 }
 
-.user_info {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 1em;
+.get_started img {
+  width: 300px;
 }
 
-.profile_container {
-  width: 50%;
-} */
+.get_started p {
+  width: 60%;
+  color: var(--color-grey);
+  text-align: center;
+}

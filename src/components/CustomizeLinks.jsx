@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "./Link";
+import GetStarted from "./GetStarted";
 
 const CustomizeLinks = ({ links, setLinks }) => {
   // const [links, setLinks] = useState([]);
@@ -33,6 +34,8 @@ const CustomizeLinks = ({ links, setLinks }) => {
         />
       </div>
 
+      {links.length < 1 ? <GetStarted /> : 
+      <>
       <div className="links">
         {links.map((link, index) => {
           return (
@@ -44,7 +47,7 @@ const CustomizeLinks = ({ links, setLinks }) => {
             />
           );
         })}
-      </div>
+      </div></>}
 
       <input
         type="button"
@@ -53,7 +56,7 @@ const CustomizeLinks = ({ links, setLinks }) => {
           localStorage.setItem("dataKey", JSON.stringify(links));
         }}
         className="btn_primary btn_save_links"
-      />
+      /> 
     </div>
   );
 };

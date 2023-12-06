@@ -2,6 +2,7 @@ import Links from "./pages/Links";
 import React, { useState, useEffect } from "react";
 import {Routes, Route} from "react-router-dom"
 import Profile from "./pages/Profile";
+import Login from "./pages/Login"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       setLinks={setLinks}/>} />
         <Route path="/profile" element={<Profile links={links}
       setLinks={setLinks} profile={profile} setProfile={setProfile}/>} />
+      <Route path="/login" element={<Login />}/>
       </Routes>
     </div>
   );

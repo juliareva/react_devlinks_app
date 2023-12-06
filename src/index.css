@@ -122,11 +122,17 @@ body {
 #root {
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
 }
 
 .App {
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
 
 }
 
@@ -160,7 +166,7 @@ nav {
   align-items: center;
   gap: 0.5em;
   text-decoration: none;
-  color: var(--color-black)
+  color: var(--color-black);
 }
 
 .nav_links_container {
@@ -400,3 +406,7 @@ text-transform: capitalize;
   color: var(--color-grey);
   text-align: center;
 }
+
+
+
+

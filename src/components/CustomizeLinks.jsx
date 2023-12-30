@@ -4,15 +4,20 @@ import GetStarted from "./GetStarted";
 
 const CustomizeLinks = ({ links, setLinks }) => {
   // const [links, setLinks] = useState([]);
+  const [firstLanding, setFirstLanding] = useState(true);
 
   // useEffect(() => {
   //   const data = localStorage.getItem("dataKey");
   //   data == null ? setLinks([]) : setLinks(JSON.parse(data));
   // }, []);
+  useEffect(() => {
+    if (links.length > 0) {
+      setFirstLanding(false);
+    }
+  }, [links]);
 
   return (
     <div className="customise_container">
-
       <div className="customize_wrapper">
         <h2 className="heading_m">Customize your links</h2>
         <p className="body_m">
@@ -34,29 +39,36 @@ const CustomizeLinks = ({ links, setLinks }) => {
         />
       </div>
 
-      {links.length < 1 ? <GetStarted /> : 
-      <>
-      <div className="links">
-        {links.map((link, index) => {
-          return (
-            <Link
-              link={link}
-              idx={index + 1}
-              links={links}
-              setLinks={setLinks}
-            />
-          );
-        })}
-      </div></>}
+      {firstLanding ? (
+        <GetStarted />
+      ) : (
+        <>
+          <div className="links">
+            {links.map((link, index) => {
+              return (
+                <Link
+                  link={link}
+                  idx={index + 1}
+                  links={links}
+                  setLinks={setLinks}
+                />
+              );
+            })}
+          </div>
+        </>
+      )}
 
-      <input
-        type="button"
-        value="Save"
-        onClick={() => {
-          localStorage.setItem("dataKey", JSON.stringify(links));
-        }}
-        className="btn_primary btn_save_links"
-      /> 
+      
+        <input
+          type="button"
+          value="Save"
+          disabled={firstLanding}
+          onClick={() => {
+            localStorage.setItem("dataKey", JSON.stringify(links));
+          }}
+          className="btn_primary btn_save_links"
+        />
+       
     </div>
   );
 };

@@ -50,7 +50,10 @@ const Mockup = ({ links, profile }) => {
   //}
 
   const getAdjustedHref = (url_text) => {
-    if (url_text.startsWith("https://") || url_text.startsWith("http://")) {
+    if (
+      url_text &&
+      (url_text.startsWith("https://") || url_text.startsWith("http://"))
+    ) {
       return url_text;
     } else {
       return "//" + url_text;
@@ -98,7 +101,9 @@ const Mockup = ({ links, profile }) => {
 
         <div className="mockup_links">
           {links.map((link, index) => {
-            return (
+            return (link && link.platform && link.platform === "default") ?
+            "" :
+             (
               <a href={getAdjustedHref(link.url_text)} target="_blank">
                 <p
                   className="body_m"

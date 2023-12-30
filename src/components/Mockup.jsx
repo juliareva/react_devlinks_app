@@ -4,41 +4,55 @@ import mockup_bg_empty from "../assets/images/illustration-phone-mockup-empty.sv
 import arrow from "../assets/images/icon-arrow-right.svg";
 
 const Mockup = ({ links, profile }) => {
+  const linksBgColor = [
+    "#1A1A1A",
+    "#EE3939",
+    "#2D68FF",
+    "#333333",
+    "#8A1A50",
+    "#302267",
+  ];
 
-const linksBgColor = ["#1A1A1A", "#EE3939", "#2D68FF", "#333333", "#8A1A50", "#302267"];
-
-// const linksBgColor = ""
-// switch (linksBgColor) {
-//     case "github":
-//         linksBgColor = "#1A1A1A";
-//       break;
-//     case "youtube":
-//       linksBgColor = "#EE3939";
-//       break;
-    // case "linkedin":
-    //   linksBgColor = "";
-    //   break;
-    // case "instagram":
-    //    linksBgColor = "";
-    //   break;
-    // case "twitter":
-    //   setPlaceholder("https://twitter.com/...");
-    //   break;
-    // case "gitlab":
-    //   setPlaceholder("https://gitlab.com/...");
-    //   break;
-    // case "codewars":
-    //   setPlaceholder("https://codewars.com/...");
-    //   break;
-    // case "twitch":
-    //   setPlaceholder("https://twitch.com/...");
-    //   break;
-    // case "facebook":
-    //   setPlaceholder("https://facebook.com/...");
-    //   break;
-    // default:
-    //   setPlaceholder(placeholder);
+  // const linksBgColor = ""
+  // switch (linksBgColor) {
+  //     case "github":
+  //         linksBgColor = "#1A1A1A";
+  //       break;
+  //     case "youtube":
+  //       linksBgColor = "#EE3939";
+  //       break;
+  // case "linkedin":
+  //   linksBgColor = "";
+  //   break;
+  // case "instagram":
+  //    linksBgColor = "";
+  //   break;
+  // case "twitter":
+  //   setPlaceholder("https://twitter.com/...");
+  //   break;
+  // case "gitlab":
+  //   setPlaceholder("https://gitlab.com/...");
+  //   break;
+  // case "codewars":
+  //   setPlaceholder("https://codewars.com/...");
+  //   break;
+  // case "twitch":
+  //   setPlaceholder("https://twitch.com/...");
+  //   break;
+  // case "facebook":
+  //   setPlaceholder("https://facebook.com/...");
+  //   break;
+  // default:
+  //   setPlaceholder(placeholder);
   //}
+
+  const getAdjustedHref = (url_text) => {
+    if (url_text.startsWith("https://") || url_text.startsWith("http://")) {
+      return url_text;
+    } else {
+      return "//" + url_text;
+    }
+  };
 
   return (
     <div
@@ -65,15 +79,18 @@ const linksBgColor = ["#1A1A1A", "#EE3939", "#2D68FF", "#333333", "#8A1A50", "#3
         </div>
 
         <div className="mockup_links">
-            
           {links.map((link, index) => {
-            return <a href={link.url_text} target="_blank">
-            <p 
-            className="body_m"
-            style={{backgroundColor: linksBgColor[index%6]}}>
-                {link.platform} <img src={arrow}/></p></a>;
+            return (
+              <a href={getAdjustedHref(link.url_text)} target="_blank">
+                <p
+                  className="body_m"
+                  style={{ backgroundColor: linksBgColor[index % 6] }}
+                >
+                  {link.platform} <img src={arrow} />
+                </p>
+              </a>
+            );
           })}
-          
         </div>
       </div>
     </div>

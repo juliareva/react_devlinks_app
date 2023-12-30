@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import {Routes, Route} from "react-router-dom"
 import Profile from "./pages/Profile";
 import Login from "./pages/Login"
+import Signup from "./pages/SignUp";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/profile" element={<Profile links={links}
       setLinks={setLinks} profile={profile} setProfile={setProfile}/>} />
       <Route path="/login" element={<Login />}/>
+      <Route path="/signup" element={<Signup />}/>
       </Routes>
     </div>
   );

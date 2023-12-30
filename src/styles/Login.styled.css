@@ -17,11 +17,16 @@
     background-color: var(--color-white);
     padding: 3em ;
     border-radius: 12px;
+    width: 40%;
+
+
  } 
 
  .login_container p {
     margin: 1em 0 2em 0;
     color: var(--color-grey);
+    text-align: left;
+    font-size: 16px;
  }
 
  .login_form_wrapper {
@@ -68,10 +73,6 @@
 
  }
 
- .login_container p {
-    text-align: center;
-    font-size: 16px;
- }
 
  .login_container a {
     color: var(--color-purple);

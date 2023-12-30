@@ -5,7 +5,7 @@ import { ReactComponent as Email_icon } from "../assets/images/icon-email.svg";
 import { ReactComponent as Password_icon } from "../assets/images/icon-password.svg";
 import "../styles/Login.styled.css";
 
-const Login = () => {
+const Signup = () => {
   return (
     <div className="logo_page">
       <div className="logo_container">
@@ -14,9 +14,8 @@ const Login = () => {
       </div>
 
       <div className="login_container">
-        <h2 className="heading_m">Login</h2>
-        <p className="body_m">
-          Add your details below to get back into the app
+        <h2 className="heading_m">Create account</h2>
+        <p className="body_m">Let’s get you started sharing your links!
         </p>
 
         <form className="login_form_wrapper">
@@ -29,26 +28,34 @@ const Login = () => {
           </div>
 
           <label for="password" className="body_s">
-            Password
+            Create password
           </label>
           <div className="login_password_input">
             <Password_icon className="icon" />
-            <input type="password" placeholder="Enter your password" required />
+            <input type="password" placeholder="At least 8 characters" required />
+          </div>
+
+          <label for="password" className="body_s">
+            Confirm password
+          </label>
+          <div className="login_password_input">
+            <Password_icon className="icon" />
+            <input type="password" placeholder="At least 8 characters" required />
           </div>
 
           <input
             type="submit"
-            value="Login"
+            value="Create new account"
             className="btn_primary login_submit"
           />
         </form>
 
         <p className="text_center">
-          Don't have an account? <a href="">Create account</a>
+        Already have an account? <a href="">Log in</a>
         </p>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

@@ -2,6 +2,9 @@ import React from "react";
 import mockup_bg from "../assets/images/illustration-phone-mockup.svg";
 import mockup_bg_empty from "../assets/images/illustration-phone-mockup-empty.svg";
 import arrow from "../assets/images/icon-arrow-right.svg";
+// Platform icons
+import { ReactComponent as Github_icon } from "../assets/images/icon-github.svg";
+import { ReactComponent as Gitlab_icon } from "../assets/images/icon-gitlab.svg";
 
 const Mockup = ({ links, profile }) => {
   const linksBgColor = [
@@ -54,6 +57,21 @@ const Mockup = ({ links, profile }) => {
     }
   };
 
+  const getPlatformIcon = (platform) => {
+    let platformIcon = null;
+    switch (platform) {
+      case "github":
+        platformIcon = <Github_icon />;
+        break;
+      case "gitlab":
+        platformIcon = <Gitlab_icon />;
+        break;
+      default:
+        break;
+    }
+    return platformIcon;
+  };
+
   return (
     <div
       className="mockup"
@@ -86,6 +104,9 @@ const Mockup = ({ links, profile }) => {
                   className="body_m"
                   style={{ backgroundColor: linksBgColor[index % 6] }}
                 >
+                  {getPlatformIcon(link.platform) != null
+                    ? getPlatformIcon(link.platform)
+                    : ""}
                   {link.platform} <img src={arrow} />
                 </p>
               </a>

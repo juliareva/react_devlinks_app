@@ -5,6 +5,7 @@ import arrow from "../assets/images/icon-arrow-right.svg";
 // Platform icons
 import { ReactComponent as Github_icon } from "../assets/images/icon-github.svg";
 import { ReactComponent as Gitlab_icon } from "../assets/images/icon-gitlab.svg";
+import EmptyMockup from "./EmptyMockup";
 
 const Mockup = ({ links, profile }) => {
   const linksBgColor = [
@@ -86,7 +87,7 @@ const Mockup = ({ links, profile }) => {
       <div className="mockup_container">
         {/* <img id="mockup_phone" src={mockup_bg_empty} /> */}
 
-        <div className="personal_info">
+        {(profile.avatar || profile.first_name || profile.first_name || profile.email || links.length > 0) ? <><div className="personal_info">
           <img
             src={`data:image/png;base64,${profile.avatar}`}
             alt="profile photo"
@@ -117,7 +118,7 @@ const Mockup = ({ links, profile }) => {
               </a>
             );
           })}
-        </div>
+        </div></>: <EmptyMockup /> }
       </div>
     </div>
   );

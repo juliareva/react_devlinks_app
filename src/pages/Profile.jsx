@@ -29,7 +29,9 @@ const Profile = ({ links, setLinks, profile, setProfile }) => {
         reader.readAsDataURL(file);
     }
 
-
+const imageDelete = (e) => {
+  setProfile({...profile, avatar: null});
+}
 
 
   return (
@@ -55,6 +57,7 @@ const Profile = ({ links, setLinks, profile, setProfile }) => {
           />
           <img src={`data:image/png;base64,${profile.avatar}`} />
           <span>Image must be below 1024x1024px. Use PNG or JPG format.</span>
+          <button onClick={imageDelete}>Delete</button>
         </div>
 
         <form className="user_info">

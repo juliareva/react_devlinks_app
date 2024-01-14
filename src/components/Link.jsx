@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 //icons
 import { ReactComponent as Drag_and_Drop } from "../assets/images/icon-drag-and-drop.svg";
 
-const Link = ({ idx, links, setLinks, link }) => {
+
+const Link = ({ idx, links, setLinks, link, index, draggedOverLink }) => {
   const [url_text, setUrlText] = useState(link.url_text ? link.url_text : "");
   const [touched, setTouched] = useState(false);
   const [platform, setPlatform] = useState(link.platform ? link.platform : "default");
@@ -68,8 +69,22 @@ const Link = ({ idx, links, setLinks, link }) => {
     setLinks(newLinks);
   };
 
+  const dragLink = useRef(0);
+
+  const handleSort = () => {
+    const linksClone = [...links];
+    [linksClone[dragLink.current], linksClone[draggedOverLink.current]] = [linksClone[draggedOverLink.current], linksClone[dragLink.current]]
+    setLinks([...linksClone])
+  }
+  
   return (
-    <div className="link">
+    <div className="link"
+    draggable
+    onDragStart={() => (dragLink.current = index)}
+    onDragEnter={() => (draggedOverLink.current = index)}
+    onDragEnd={handleSort}
+    onDragOver={(e) => e.preventDefault()}
+    >
       <div className="link_header">
         <div className="link_name">
           <Drag_and_Drop />

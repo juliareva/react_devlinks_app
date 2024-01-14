@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "./Link";
 import GetStarted from "./GetStarted";
 
@@ -15,6 +15,9 @@ const CustomizeLinks = ({ links, setLinks }) => {
       setFirstLanding(false);
     }
   }, [links]);
+
+  const draggedOverLink = useRef(0);
+
 
   return (
     <div className="customise_container">
@@ -46,29 +49,33 @@ const CustomizeLinks = ({ links, setLinks }) => {
           <div className="links">
             {links.map((link, index) => {
               return (
+                // Why don't use just index as a key
+                // More details here: https://stackoverflow.com/a/70944890
+                <div key={index.toString() + link.url_text}>
                 <Link
+                draggedOverLink={draggedOverLink}
                   link={link}
                   idx={index + 1}
+                  index={index}
                   links={links}
                   setLinks={setLinks}
                 />
+                 </div>
               );
             })}
           </div>
         </>
       )}
 
-      
-        <input
-          type="button"
-          value="Save"
-          disabled={firstLanding}
-          onClick={() => {
-            localStorage.setItem("dataKey", JSON.stringify(links));
-          }}
-          className="btn_primary btn_save_links"
-        />
-       
+      <input
+        type="button"
+        value="Save"
+        disabled={firstLanding}
+        onClick={() => {
+          localStorage.setItem("dataKey", JSON.stringify(links));
+        }}
+        className="btn_primary btn_save_links"
+      />
     </div>
   );
 };

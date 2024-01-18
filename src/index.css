@@ -73,6 +73,7 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 11px 27px;
   width: 227px;
+
   color: var(--color-white);
   font-family: "InstrumentSans-Bold" ;
   font-size: 16px;
@@ -415,5 +416,102 @@ text-transform: capitalize;
 }
 
 
+/* ------ PROFILE PAGE STYLES */
+
+.profile_container {
+  width: 60%;
+
+  display: flex;
+  flex-direction: column;
+  padding: 3em 2em;
+  background-color: var(--color-white);
+  border-radius: 12px;
+
+}
+
+.profile_picture {
+  width: 100%;
+  background-color: var(--color-grey-pale);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 1.5em;
+  margin: 1.5em 0 0 0;
+  color: var(--color-grey);
+}
+
+.user_info {
+  background-color: var(--color-grey-pale);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+  margin: 1.5em 0;
+}
+
+.form_first_name,
+.form_last_name,
+.form_email {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1em ;
+  color: var(--color-grey)
+}
+
+.user_info input {
+ min-width: 450px;
+  padding: 0.5em;
+  border-radius: 8px;
+  font-family: "InstrumentSans-Regular" ;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.save_form {
+  align-self: flex-end;
+  padding: 11px;
+  width: 160px;
+  margin-top: 2em;
+}
+
+.delete_profile_img  {
+padding: 0.5em 1em;
+width: 100px;
+  border-radius: 8px;
+  color: var(--color-grey);
+  border: 1px solid var(--color-grey-light);
+}
+
+.upload_avatar {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+}
+
+.user_avatar {
+  width: 100px;
+  border-radius: 50%;
+}
 
 
+/* ------ EMPTY MOCKUP STYLES */
+
+.empty_mockup {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 2em;
+text-align: center;
+gap: 1em;
+}
+
+.empty_mockup a {
+  text-decoration: none;
+}
